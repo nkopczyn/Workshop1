@@ -5,7 +5,13 @@ import org.apache.commons.lang3.math.NumberUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class TaskManager {
@@ -152,7 +158,19 @@ public class TaskManager {
 
     public static void exitProgram() {
         // save new file
+        Path filepath = Paths.get("tasks.csv");
 
+        List<String> tasksToFile = new ArrayList<>();
+        for (String[] task : fileWithTasks) {
+            tasksToFile.add(String.join(" ", task));
+        }
+
+        try {
+            Files.write(filepath, tasksToFile);
+            System.out.println("File saved");
+        } catch (IOException ex) {
+            System.out.println("Could not save file.");
+        }
 
         // print bye bye
         System.out.println(ConsoleColors.RED + "Bye, Bye.");
