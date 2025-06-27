@@ -3,7 +3,6 @@
 Wytworzenie programu konsolowego do zarządzania zadaniami: Tasks.
 Aplikacja musi posiadać możliwość wpisywania komend i wykonywania odpowiednich operacji w zależności od komendy, która została wpisana.
 
-Aplikacja musi posiadać następujące funkcje:
 
 ## Metody w programie
 1. Metoda wyświetlająca opcje dostępne w programie

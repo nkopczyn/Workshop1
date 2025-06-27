@@ -116,7 +116,8 @@ public class TaskManager {
         fileWithTasks = Arrays.copyOf(fileWithTasks, fileWithTasks.length + 1);
         fileWithTasks[fileWithTasks.length - 1] = newTask;
 
-        System.out.println(Arrays.deepToString(fileWithTasks));
+        //System.out.println(Arrays.deepToString(fileWithTasks));
+        System.out.println("Task added successfully.");
 
     }
 
@@ -126,13 +127,13 @@ public class TaskManager {
         Scanner removeScanner = new Scanner(System.in);
         System.out.println("Please select index number of item to remove:");
 
-        // what the user enters, for now a string
-        String removeInput = removeScanner.nextLine();
+        String removeInput = removeScanner.nextLine(); // what the user enters, for now a string
 
         try {
             int taskIndex = Integer.parseInt(removeInput);  // checking if the input can be parsed as an int
             if (taskIndex >= 0) {
                 fileWithTasks = ArrayUtils.remove(fileWithTasks, taskIndex);
+                System.out.println("Value was successfully deleted.");
 
             } else {
                 System.out.println("Please enter number greater than or equal to 0");
@@ -141,8 +142,6 @@ public class TaskManager {
         } catch (NumberFormatException e) {
             System.out.println("Incorrect argument passed, please enter a number.");
         }
-
-        System.out.println("Value was successfully deleted.");
 
     }
 
@@ -162,7 +161,8 @@ public class TaskManager {
 
         List<String> tasksToFile = new ArrayList<>();
         for (String[] task : fileWithTasks) {
-            tasksToFile.add(String.join(" ", task));
+            String taskJoined = String.join(" ", task);
+            tasksToFile.add(taskJoined);
         }
 
         try {
